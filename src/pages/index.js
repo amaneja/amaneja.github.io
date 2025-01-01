@@ -1,128 +1,50 @@
-import * as React from "react"
+import React from "react"
 import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
-
 import Layout from "../components/layout"
-import Seo from "../components/seo"
-import * as styles from "../components/index.module.css"
-
-const links = [
-  {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-  },
-  {
-    text: "Examples",
-    url: "https://github.com/gatsbyjs/gatsby/tree/master/examples",
-    description:
-      "A collection of websites ranging from very basic to complex/complete that illustrate how to accomplish specific tasks within your Gatsby sites.",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Learn how to add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-  },
-  {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-  },
-]
-
-const samplePageLinks = [
-  {
-    text: "Page 2",
-    url: "page-2",
-    badge: false,
-    description:
-      "A simple example of linking to another page within a Gatsby site",
-  },
-  { text: "TypeScript", url: "using-typescript" },
-  { text: "Server Side Rendering", url: "using-ssr" },
-  { text: "Deferred Static Generation", url: "using-dsg" },
-]
-
-const moreLinks = [
-  { text: "Join us on Discord", url: "https://gatsby.dev/discord" },
-  {
-    text: "Documentation",
-    url: "https://gatsbyjs.com/docs/",
-  },
-  {
-    text: "Starters",
-    url: "https://gatsbyjs.com/starters/",
-  },
-  {
-    text: "Showcase",
-    url: "https://gatsbyjs.com/showcase/",
-  },
-  {
-    text: "Contributing",
-    url: "https://www.gatsbyjs.com/contributing/",
-  },
-  { text: "Issues", url: "https://github.com/gatsbyjs/gatsby/issues" },
-]
-
-const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`
+import SEO from "../components/seo"
 
 const IndexPage = () => (
   <Layout>
-    <div className={styles.textCenter}>
-      <StaticImage
-        src="../images/example.png"
-        loading="eager"
-        width={64}
-        quality={95}
-        formats={["auto", "webp", "avif"]}
-        alt=""
-        style={{ marginBottom: `var(--space-3)` }}
-      />
-      <h1>
-        Welcome to <b>Gatsby!</b>
-      </h1>
-      <p className={styles.intro}>
-        <b>Example pages:</b>{" "}
-        {samplePageLinks.map((link, i) => (
-          <React.Fragment key={link.url}>
-            <Link to={link.url}>{link.text}</Link>
-            {i !== samplePageLinks.length - 1 && <> · </>}
-          </React.Fragment>
-        ))}
-        <br />
-        Edit <code>src/pages/index.js</code> to update this page.
-      </p>
-    </div>
-    <ul className={styles.list}>
-      {links.map(link => (
-        <li key={link.url} className={styles.listItem}>
-          <a
-            className={styles.listItemLink}
-            href={`${link.url}${utmParameters}`}
-          >
-            {link.text} ↗
-          </a>
-          <p className={styles.listItemDescription}>{link.description}</p>
-        </li>
-      ))}
-    </ul>
-    {moreLinks.map((link, i) => (
-      <React.Fragment key={link.url}>
-        <a href={`${link.url}${utmParameters}`}>{link.text}</a>
-        {i !== moreLinks.length - 1 && <> · </>}
-      </React.Fragment>
-    ))}
+    <SEO title="Home" />
+    <h1>Welcome to My Portfolio</h1>
+    <p>Hi, I'm Amandeep Singh Aneja, a Techno-Functional Consultant with expertise in ERP systems and software engineering.</p>
+    <p>Check out my skills, experience, and projects below!</p>
+    
+    <section>
+      <h2>About Me</h2>
+      <p>With 14+ years of experience in QAD and ERP systems, I specialize in functional consulting, system integrations, and custom solutions.</p>
+      <Link to="/about">Learn more about me</Link>
+    </section>
+
+    <section>
+      <h2>Skills & Expertise</h2>
+      <ul>
+        <li>QAD Techno-Functional Consulting</li>
+        <li>Cloud Computing</li>
+        <li>Java Programming</li>
+        <li>SQL, .NET, C#</li>
+        <li>OpenEdge Progress 4GL</li>
+      </ul>
+      <Link to="/skills">See more skills</Link>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      <p>I've worked with several companies like Adient, G-TEKT, and Nevro, helping them optimize their ERP systems.</p>
+      <Link to="/experience">View my experience</Link>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <p>Explore some of the innovative solutions I've built and contributed to in my career.</p>
+      <Link to="/projects">See my projects</Link>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>You can reach out to me on <a href="https://www.linkedin.com/in/amansaneja/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
+    </section>
   </Layout>
 )
-
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
-export const Head = () => <Seo title="Home" />
 
 export default IndexPage
